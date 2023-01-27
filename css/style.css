@@ -71,7 +71,7 @@ main {
     text-align: center;
     border: 1px solid black;
     margin-bottom: 15rem;
-    background-image: url(/imgs/banner.webp);
+    background-image: url(/imgs/truebanner.jpg);
 }
 
 .inspiration h2 {
@@ -83,7 +83,7 @@ main {
 }
 
 .inspiration2 {
-    background-image: url(/imgs/bxday.webp);
+    background-image: url(/imgs/inspiration2.jpg);
     width: 100%;
     height: 75vh;
     border: 1px solid black;
