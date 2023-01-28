@@ -11,3 +11,4 @@ let quant;
 let remove ;
 const conf = document.getElementById('conf');
 let dom_price= document.getElementById("price");
+

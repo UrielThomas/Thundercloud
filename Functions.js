@@ -1,7 +1,4 @@
-function cart_push() {
-    if (!cart.includes(cart_product)) {
-        cart.push(cart_product)
-    }
+function cart_push(cart_product) {
     price=cart_product.precio+price
     box.innerHTML = ""
     cart.forEach(cart_obj => {
@@ -17,6 +14,10 @@ function cart_push() {
         dom_price.innerText="Precio total: $"+price;
         let inbox = document.getElementById('inbox')
         inbox.appendChild(div);
+        let lcl = JSON.stringify(cart)
+        localStorage.setItem('cart',lcl);
+        // let lcl_price = JSON.stringify(price)
+        // localStorage.setItem('price',lcl_price);
     });
 }
 
@@ -55,32 +56,50 @@ function cart_mng(e) {
         case "vape1":
             vapes[0].cantidad++
             cart_product=vapes[0]
-            cart_push();
+            if (!cart.includes(cart_product)) {
+                cart.push(cart_product)
+            }
+            cart_push(cart_product);
             break
         case "vape2":
             vapes[1].cantidad++
             cart_product=vapes[1]
-            cart_push()
+            if (!cart.includes(cart_product)) {
+                cart.push(cart_product)
+            }
+            cart_push(cart_product)
             break
         case "vape3":
             vapes[2].cantidad++
             cart_product=vapes[2]
-            cart_push()
+            if (!cart.includes(cart_product)) {
+                cart.push(cart_product)
+            }
+            cart_push(cart_product)
             break
         case "vape4":
             vapes[3].cantidad++
             cart_product=vapes[3]
-            cart_push()
+            if (!cart.includes(cart_product)) {
+                cart.push(cart_product)
+            }
+            cart_push(cart_product)
             break
         case "vape5":
             vapes[4].cantidad++
             cart_product=vapes[4]
-            cart_push()
+            if (!cart.includes(cart_product)) {
+                cart.push(cart_product)
+            }
+            cart_push(cart_product)
             break
         case "vape6":
             vapes[5].cantidad++
             cart_product=vapes[5]
-            cart_push()
+            if (!cart.includes(cart_product)) {
+                cart.push(cart_product)
+            }
+            cart_push(cart_product)
             break
     }
 }
