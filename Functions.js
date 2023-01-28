@@ -1,4 +1,5 @@
-function cart_push(cart_product) {
+/*Esta funcion recorre el carro y pinta los objetos dentro de este en la pantalla. Tambien aumenta la variable global de precio */
+function cart_push(cart_product) {                              
     price=cart_product.precio+price
     box.innerHTML = ""
     cart.forEach(cart_obj => {
@@ -16,25 +17,13 @@ function cart_push(cart_product) {
         inbox.appendChild(div);
         let lcl = JSON.stringify(cart)
         localStorage.setItem('cart',lcl);
-        // let lcl_price = JSON.stringify(price)
-        // localStorage.setItem('price',lcl_price);
+        let lcl_price = JSON.stringify(price)
+        localStorage.setItem('price',lcl_price);
     });
 }
 
 
-box.addEventListener("click",(e)=>{
-    e.stopPropagation
-    let rmv_btn = e.target
-    if(e.target.classList.contains("dlt")){
-        cart_remove(e.target.id,rmv_btn);
-    }
-
-});
-
-
-
-
-
+/*Aca busco el indice del objeto en el carro que coincida con el id del boton de borrar,que es igual al id del objeto al que esta vinculado, asi lo puedo sacar del carro. Tambien "borro" dichos objetos de la pantalla           */ 
 function cart_remove(btn_id, rmv_btn) {
 
     let cart_index = cart.findIndex(ers => ers.id == btn_id);
@@ -44,10 +33,19 @@ function cart_remove(btn_id, rmv_btn) {
     vapes[btn_id].cantidad = 0
     console.log(price)
     dom_price.innerText="Precio total: $"+price;
+    localStorage.clear('cart');
+    localStorage.clear('price');
+    let lcl = JSON.stringify(cart)
+    localStorage.setItem('cart',lcl);
+    let lcl_price = JSON.stringify(price)
+    localStorage.setItem('price',lcl_price);
 
 }
 
-function cart_mng(e) {
+
+
+/*La funcion de abajo detecta los botones(de forma poco eficiente me fui a enterar tarde)y pushea el objeto correspondiente de la lista de productos, a la funcion que los pinta en pantalla, y al carro*/
+function cart_mng(e) {                                              
 
     let on_click = e.target
     let outer = on_click.parentNode;
@@ -104,7 +102,21 @@ function cart_mng(e) {
     }
 }
 
-
+// window.onload = (event) => {                                 Le dejo comentado esta parte,por si interesa chusmear.
+//     let new_cart = localStorage.getItem('cart')                         
+//     let new_cart_2 = JSON.parse(new_cart)                            
+//     console.log(new_cart_2);
+//     cart = new_cart_2
+//     let new_price = localStorage.getItem('price')
+//     let new_price_2 = JSON.parse(new_price)
+//     price = new_price_2
+//     // console.log(result)
+//     for (const new_product of new_cart_2) {
+//         cart_product = new_product
+//         console.log(cart_product)
+//         cart_push(cart_product)
+//     }
+// };
 
 
 

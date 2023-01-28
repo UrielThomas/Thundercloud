@@ -10,16 +10,14 @@ for (let clk of btn) {
 }
 
 
-window.onload = (event) => {
-
-    let new_cart=localStorage.getItem('cart')
-    let new_cart_2=JSON.parse(new_cart)
-    cart=new_cart_2
-    for (const new_product of new_cart_2) {
-        cart_product = new_product
-        console.log(cart_product)
-        cart_push(cart_product)
+box.addEventListener("click",(e)=>{
+    e.stopPropagation
+    let rmv_btn = e.target
+    if(e.target.classList.contains("dlt")){
+        cart_remove(e.target.id,rmv_btn);
     }
-};
+
+});
+
 
 

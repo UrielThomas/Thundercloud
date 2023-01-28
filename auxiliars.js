@@ -1,3 +1,4 @@
+/*Este es el filtro, simplemente recorro todos los divs con class name product y si tienen una clase que no coincida con el selector, se le aplica la propiedad display:none */
 conf.addEventListener("click", function (event) {
     event.preventDefault
     const sel = document.getElementById("level")
@@ -5,7 +6,7 @@ conf.addEventListener("click", function (event) {
     let pr_lvl = document.getElementsByClassName('product')
     for (const l_v_l of pr_lvl) {
         l_v_l.classList.remove("nolvl")
-        console.log(l_v_l)
+        // console.log(l_v_l)
         if (lvlindx === 0 && !l_v_l.classList.contains("bgn")) {
             l_v_l.classList.add("nolvl");
 
@@ -20,7 +21,7 @@ conf.addEventListener("click", function (event) {
 });
 
 
-
+/*Esta es una simple funcion para hacer la ventana del carro aparecer y desaparecer */
 const shw_cart= document.getElementById("icon");
 shw_cart.addEventListener("click",function(){
     if(bigBox.className == "cart"){
